@@ -1,0 +1,8 @@
+I:\MEGASync\Godot\ChromeDino\.mono\temp\obj\Debug\ChromDino.csprojAssemblyReference.cache
+I:\MEGASync\Godot\ChromeDino\.mono\temp\obj\Debug\ChromDino.AssemblyInfoInputs.cache
+I:\MEGASync\Godot\ChromeDino\.mono\temp\obj\Debug\ChromDino.AssemblyInfo.cs
+I:\MEGASync\Godot\ChromeDino\.mono\temp\obj\Debug\ChromDino.csproj.CoreCompileInputs.cache
+I:\MEGASync\Godot\ChromeDino\.mono\temp\bin\Debug\ChromDino.dll
+I:\MEGASync\Godot\ChromeDino\.mono\temp\bin\Debug\ChromDino.pdb
+I:\MEGASync\Godot\ChromeDino\.mono\temp\obj\Debug\ChromDino.dll
+I:\MEGASync\Godot\ChromeDino\.mono\temp\obj\Debug\ChromDino.pdb

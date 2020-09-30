@@ -1,0 +1,93 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scripts/NewWorld.cs" type="Script" id=1]
+[ext_resource path="res://Chrome Dino Game Sprites/floor-1.png" type="Texture" id=2]
+[ext_resource path="res://Scene/scene.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/ScrollingBackground.cs" type="Script" id=4]
+[ext_resource path="res://Chrome Dino Game Sprites/death.png" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 808, 19.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16, 8 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://Chrome Dino Game Sprites/font/pixelmix.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+font_data = SubResource( 3 )
+
+[node name="NewWorld" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_mask = 7
+mode = 1
+gravity_scale = 0.0
+
+[node name="Backgrounds" type="Node2D" parent="RigidBody2D"]
+script = ExtResource( 4 )
+
+[node name="Sprite1" type="Sprite" parent="RigidBody2D/Backgrounds"]
+position = Vector2( 296, 592 )
+scale = Vector2( 1, 1.64286 )
+texture = ExtResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="RigidBody2D/Backgrounds"]
+position = Vector2( 880, 592 )
+scale = Vector2( 1, 1.64286 )
+texture = ExtResource( 2 )
+
+[node name="Sprite3" type="Sprite" parent="RigidBody2D/Backgrounds"]
+position = Vector2( 1464, 592 )
+scale = Vector2( 1, 1.64286 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 784, 608 )
+shape = SubResource( 1 )
+one_way_collision_margin = 0.0
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 72, 504 )
+scale = Vector2( 1.36, 1.32 )
+collision_layer = 4
+collision_mask = 2
+gravity = 1000.0
+speed = Vector2( 500, 0 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( -0.779045, 7.62939e-06 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 56, 592 )
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 2 )
+
+[node name="death" type="Sprite" parent="."]
+visible = false
+position = Vector2( 72, 559 )
+scale = Vector2( 1.40909, 1.35106 )
+texture = ExtResource( 5 )
+
+[node name="Score" type="RichTextLabel" parent="."]
+margin_left = 760.0
+margin_top = 288.0
+margin_right = 952.0
+margin_bottom = 328.0
+custom_fonts/normal_font = SubResource( 4 )
+text = "00000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemyTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[node name="HardnessTimer" type="Timer" parent="."]

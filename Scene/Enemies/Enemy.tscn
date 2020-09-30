@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Chrome Dino Game Sprites/CACTUS1.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Enemy.cs" type="Script" id=2]
+
+[node name="Enemy" type="KinematicBody2D"]
+position = Vector2( 1.41425, -1.41425 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 968.197, 512.176 )
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2( -975.96, -504.788 )
+polygon = PoolVector2Array( -12.5001, -21.1909, 1.05935, -37.3782, 11.7808, -37.3782, 25.3402, -22.6625, 25.3402, -3.21678, 13.4025, 22.76, -3.21454, 22.76, -12.6052, -1.32476 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -1.4306, 1.34097 )
+scale = Vector2( 1.52756, 1.275 )
+texture = ExtResource( 1 )

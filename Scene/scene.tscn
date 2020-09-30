@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Chrome Dino Game Sprites/death.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Player.cs" type="Script" id=2]
+[ext_resource path="res://Chrome Dino Game Sprites/run1.png" type="Texture" id=3]
+[ext_resource path="res://Chrome Dino Game Sprites/run2.png" type="Texture" id=4]
+[ext_resource path="res://Chrome Dino Game Sprites/low1-small.png" type="Texture" id=5]
+[ext_resource path="res://Chrome Dino Game Sprites/low2-small.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Run",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 7.04202, 1.63625 )
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 184.819, 218.118 )
+script = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 0.507996, -22.1891, 19.7987, -22.3405, 20.3894, 12.5957, 9.62051, 13.7002, 6.07018, 14.8921, 3.81882, 22.7056, -9.82178, 22.3083, -20.6813, 5.22447, -20.6813, -6.82692, -16.9731, -6.82692, -13.265, 0.854172, -1.21364, -8.01881 )
+
+[node name="Run" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( -0.108843, -0.0118256 )
+scale = Vector2( 0.974892, 0.97193 )
+frames = SubResource( 1 )
+animation = "Run"
+frame = 1
+speed_scale = 2.0
+
+[node name="Area2D" type="Area2D" parent="Run"]
+position = Vector2( 0.111649, 0.0121613 )
+scale = Vector2( 1.02575, 1.02888 )
+space_override = 1
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Run/Area2D"]
+polygon = PoolVector2Array( 0.507996, -22.1891, 20.2405, -22.0567, 20.2405, -7.48909, 7.52693, 8.53529, 6.07018, 14.8921, 3.81882, 22.7056, -9.82178, 22.3083, -20.6813, 5.22447, -20.6813, -6.82692, -16.9731, -6.82692, -13.265, 0.854172, -1.21364, -8.01881 )
+
+[node name="Crouch" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 6.68173, 5.51244 )
+scale = Vector2( 1.13809, 1.18693 )
+frames = SubResource( 2 )
+frame = 1
+speed_scale = 2.0
+
+[node name="Area2D" type="Area2D" parent="Crouch"]
+position = Vector2( -5.87102, -4.64429 )
+scale = Vector2( 0.878665, 0.84251 )
+space_override = 1
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Crouch/Area2D"]
+polygon = PoolVector2Array( -1.10353, -3.55177, 33.7529, -3.4404, 34.3097, 12.4844, 13.1509, 11.1481, 13.0395, 17.0503, 0.901001, 16.3821, -7.56255, 22.3957, -18.142, 5.13449, -19.8124, -2.10406, -18.6988, -4.44267, -17.0283, -2.43814, -10.6807, -3.10632 )
+
+[node name="GroundCheck" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundCheck"]
+position = Vector2( -9.17712, 22.1937 )
+shape = SubResource( 3 )
+
+[node name="death" type="Sprite" parent="."]
+visible = false
+position = Vector2( -0.101257, 0.45723 )
+scale = Vector2( 0.984814, 0.971568 )
+texture = ExtResource( 1 )
